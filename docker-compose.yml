@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  neo4j:
+    image: neo4j:latest
+    container_name: legal_graph
+    ports:
+      - "7474:7474" # L'interface web (pour voir le graphe)
+      - "7687:7687" # Le port de communication pour Python
+    environment:
+      NEO4J_AUTH: neo4j/password123  # Ton identifiant et mot de passe
+      NEO4J_PLUGINS: '["apoc", "graph-data-science"]'
